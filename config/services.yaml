@@ -20,9 +20,21 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Command\GenerateDefaultDataCommand:
+        arguments:
+            [ '@App\Service\DataGenerator\FakerDataGenerator', '@App\Service\DataGenerator\DataGeneratorFactory' ]
+
     App\Service\DataGenerator\FakerDataGenerator:
         bind:
             $limit: 100
+
+    App\Listeners\UserListener:
+        tags:
+            -
+                name: doctrine.orm.entity_listener
+                event: prePersist
+                entity: App\Entity\User
+                lazy: true
 
     App\Listeners\BlogPostListener:
         tags:
