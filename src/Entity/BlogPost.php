@@ -12,7 +12,6 @@ use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource(
     operations: [
@@ -43,20 +42,10 @@ class BlogPost
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Length(
-        min: 5,
-        minMessage: 'The title must be longer than {{ limit }}',
-        max: 255,
-        maxMessage: 'The title must be shorter than {{ limit }}'
-    )]
     #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\Length(
-        min: 5,
-        minMessage: 'The body must be longer than {{ limit }}'
-    )]
     #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $body = null;
 
