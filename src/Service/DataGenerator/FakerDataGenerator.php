@@ -2,7 +2,7 @@
 
 namespace App\Service\DataGenerator;
 
-use App\Entity\Blogpost;
+use App\Entity\BlogPost;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -65,9 +65,9 @@ class FakerDataGenerator extends DataGenerator
     /**
      * Generates a random post.
      */
-    private function generateBlogPost() : Blogpost
+    private function generateBlogPost() : BlogPost
     {
-        $blogPost = new Blogpost();
+        $blogPost = new BlogPost();
 
         $blogPost->setTitle($this->faker->execute('sentence'));
         $blogPost->setBody($this->faker->execute('text', self::MAX_NUMBER_OF_PARAGRAPHS));
@@ -81,7 +81,7 @@ class FakerDataGenerator extends DataGenerator
     /**
      * Uses a random user as a blog's author.
      */
-    private function generateAuthorForBlog(Blogpost $blog)
+    private function generateAuthorForBlog(BlogPost $blog)
     {
         $blog->setAuthor($this->faker->execute('randomElement', $this->users));
     }

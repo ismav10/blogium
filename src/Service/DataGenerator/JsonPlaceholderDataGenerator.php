@@ -2,7 +2,7 @@
 
 namespace App\Service\DataGenerator;
 
-use App\Entity\Blogpost;
+use App\Entity\BlogPost;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -75,9 +75,9 @@ class JsonPlaceholderDataGenerator extends DataGenerator
     /**
      * Randomly generates a blog post.
      */
-    private function generateBlogPost(array $blogData) : Blogpost
+    private function generateBlogPost(array $blogData) : BlogPost
     {
-        $blogPost = new Blogpost();
+        $blogPost = new BlogPost();
 
         $blogPost->setTitle($blogData['title']);
         $blogPost->setBody($blogData['body']);
