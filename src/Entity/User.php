@@ -6,10 +6,16 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(
+    fields: ['username'], 
+    message: 'This username is already in use'
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -17,18 +23,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\Length(
+        min: 3, 
+        max: 180, 
+        minMessage: 'The username must be longer than {{ limit }}',
+        maxMessage: 'The username must be shorter than {{ limit }}'
+    )]
     #[ORM\Column(length: 180, unique: true)]
     private ?string $username = null;
 
     #[ORM\Column]
     private array $roles = [];
 
-    /**
-     * @var string The hashed password
-     */
+    #[Assert\Length(
+        min: 8,
+        minMessage: 'The password must be longer than {{ limit }}'
+    )]
     #[ORM\Column]
     private ?string $password = null;
 
+    #[Assert\Length(
+        min: 6,
+        max: 255,
+        minMessage: 'The full name must be longer than {{ limit }}',
+        maxMessage: 'The full name must be shorter than {{ limit }}'
+    )]
     #[ORM\Column(length: 255)]
     private ?string $fullname = null;
 
