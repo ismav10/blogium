@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -9,8 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
+#[ApiResource(
+    operations: []
+)]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(
     fields: ['username'], 
@@ -30,6 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         maxMessage: 'The username must be shorter than {{ limit }}'
     )]
     #[ORM\Column(length: 180, unique: true)]
+    #[Groups(['blogpost:read'])]
     private ?string $username = null;
 
     #[ORM\Column]
@@ -49,6 +55,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         maxMessage: 'The full name must be shorter than {{ limit }}'
     )]
     #[ORM\Column(length: 255)]
+    #[Groups(['blogpost:read'])]
     private ?string $fullname = null;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: BlogPost::class, orphanRemoval: true)]
