@@ -31,5 +31,5 @@ App\Entity\User:
       - Length:
           min: 6
           max: 255
-          minMessage: 'The full name must be longer than {{ limit }}',
+          minMessage: 'The full name must be longer than {{ limit }}'
           maxMessage: 'The full name must be shorter than {{ limit }}'
