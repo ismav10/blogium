@@ -23,7 +23,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     normalizationContext: [ 'groups' => ['blogpost:read'] ],
     denormalizationContext: [ 'groups' => ['blogpost:write'] ],
     paginationItemsPerPage: 10,
-    order: ['created' => 'DESC']
+    order: ['created' => 'DESC'],
+    shortName: 'blogposts'
 )]
 #[ApiFilter(
     SearchFilter::class, 
