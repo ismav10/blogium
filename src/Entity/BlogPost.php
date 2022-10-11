@@ -2,11 +2,37 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\BlogPostRepository;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
+#[ApiResource(
+    operations: [
+        new Get(),
+        new Post(),
+        new GetCollection()
+    ],
+    normalizationContext: [ 'groups' => ['blogpost:read'] ],
+    denormalizationContext: [ 'groups' => ['blogpost:write'] ],
+    paginationItemsPerPage: 10,
+    order: ['created' => 'DESC']
+)]
+#[ApiFilter(
+    SearchFilter::class, 
+    properties: [
+        'title' => 'partial',
+        'author.fullname' => 'partial',
+        'author.username' => 'partial'
+    ] 
+)]
 #[ORM\Entity(repositoryClass: BlogPostRepository::class)]
 class BlogPost
 {
@@ -22,6 +48,7 @@ class BlogPost
         max: 255,
         maxMessage: 'The title must be shorter than {{ limit }}'
     )]
+    #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -29,19 +56,23 @@ class BlogPost
         min: 5,
         minMessage: 'The body must be longer than {{ limit }}'
     )]
+    #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $body = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['blogpost:read'])]
     private ?\DateTimeInterface $created = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['blogpost:read'])]
     private ?string $media = null;
 
     #[ORM\ManyToOne(inversedBy: 'posts')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['blogpost:read'])]
     private ?User $author = null;
 
     public function getId(): ?int
