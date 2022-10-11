@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  database:
+      image: mysql:latest
+      ports:
+        - 3307:3306
+      environment:
+        MYSQL_DATABASE: blogium
+        MYSQL_PASSWORD: blogium
+        MYSQL_USER: blogium
+        MYSQL_ROOT_PASSWORD: root
+      volumes:
+        - db-data:/var/lib/mysql:rw
+      networks:
+        - symfony
+  nginx:
+    build:
+      context: .
+      dockerfile: ./build/nginx/Dockerfile-nginx
+    volumes:
+      - .:/var/www/symfony
+    ports:
+      - 8001:80
+    networks:
+      - symfony
+  php:
+    build:
+      context: .
+      dockerfile: ./build/php/Dockerfile-php
+    environment:
+      APP_ENV: dev
+    volumes:
+      - .:/var/www/symfony
+    networks:
+      - symfony
+  
+networks:
+  symfony:
+
+volumes:
+  db-data:
