@@ -1,0 +1,4 @@
+api_platform:
+  title: 'Blogium API'
+  description: 'An API to fetch blogs and post new ones'
+  version: '1.0.0'
