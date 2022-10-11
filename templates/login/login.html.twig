@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %} 
-    {% trans %} Login {% endtrans %} 
+    Login
 {% endblock %}
 
 {% block body %}
@@ -13,11 +13,11 @@
                 </li>
             </ul>
         {% endif %}
-        <h1>{% trans %}LogIn{% endtrans %}</h1>
-        <label for="username">{% trans %}Username{% endtrans %}</label>
+        <h1>LogIn</h1>
+        <label for="username">Username</label>
         <input type="text" name="_username" value="{{ last_username }}" required>
-        <label for="password">{% trans %}Password{% endtrans %}</label>
+        <label for="password">Password</label>
         <input type="password" name="_password" required>
-        <button type="submit">{% trans %}LogIn{% endtrans %}</button>
+        <button type="submit">LogIn</button>
     </form>
 {% endblock %}

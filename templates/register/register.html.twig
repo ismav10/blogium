@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %} 
-    {% trans %} Register {% endtrans %} 
+    Register  
 {% endblock %}
 
 {% block body %}
@@ -20,13 +20,13 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <h1>{% trans %}Register{% endtrans %}</h1>
-        <label for="fullname">{% trans %}Full name{% endtrans %}</label>
+        <h1>Register</h1>
+        <label for="fullname">Full name</label>
         <input type="text" name="fullname">
-        <label for="username">{% trans %}Username{% endtrans %}</label>
+        <label for="username">Username</label>
         <input type="text" name="username">
-        <label for="password">{% trans %}Password{% endtrans %}</label>
+        <label for="password">Password</label>
         <input type="password" name="password">
-        <button type="submit">{% trans %}Register{% endtrans %}</button>
+        <button type="submit">Register</button>
     </form>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %} 
-    {% trans %} Blog List {% endtrans %} 
+    Blog List 
 {% endblock %}
 
 {% block body %}
@@ -30,13 +30,11 @@
                 {% endfor %}
         </div>
         <div class="register-for-more">
-            <h2>{% trans %}Register for more{% endtrans %}</h2>
+            <h2>Register for more</h2>
             <p>
-                {% trans %}
-                    These are the latest posts of the platform.
-                    In order to post your own blogs and see the full content of the platform you can register
-                {% endtrans %}
+                These are the latest posts of the platform.
+                In order to post your own blogs and see the full content of the platform you can register
             </p>
-            <a class="btn" href="{{url('register')}}">{% trans %}Register{% endtrans %}</a>
+            <a class="btn" href="{{url('register')}}">Register</a>
         </div>
 {% endblock %}
