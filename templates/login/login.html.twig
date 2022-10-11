@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %} 
+    {% trans %} Login {% endtrans %} 
+{% endblock %}
+
+{% block body %}
+    <form class="login-form" action="{{url('login')}}" method="POST">
+        {% if error %}
+            <ul>
+                <li class="error-message">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </li>
+            </ul>
+        {% endif %}
+        <h1>{% trans %}LogIn{% endtrans %}</h1>
+        <label for="username">{% trans %}Username{% endtrans %}</label>
+        <input type="text" name="_username" value="{{ last_username }}" required>
+        <label for="password">{% trans %}Password{% endtrans %}</label>
+        <input type="password" name="_password" required>
+        <button type="submit">{% trans %}LogIn{% endtrans %}</button>
+    </form>
+{% endblock %}
