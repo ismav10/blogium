@@ -23,6 +23,8 @@ security:
                 default_target_path: secured
             login_throttling:
                 max_attempts: 3
+            logout:
+                path: logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
