@@ -7,6 +7,14 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import './styles/secured.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+import { createApp } from 'vue';
+import App from './pages/blogposts';
+
+createApp(App).mount('#app');
+
+window.app = app;
