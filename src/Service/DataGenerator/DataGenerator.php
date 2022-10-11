@@ -10,8 +10,6 @@ abstract class DataGenerator
      * An array of images with the photos that can be used as media for the blog posts.
      * Can be improved getting these routes with the finder component.
      * Doesn't make sense in a project with real media.
-     * 
-     * @var array
      */
     protected const IMAGES = [
         'images/postphoto1.png',
