@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %} 
+    {% trans %} Register {% endtrans %} 
+{% endblock %}
+
+{% block body %}
+    <form class="login-form" action="{{url('register')}}" method="POST">
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li class="error-message">{{error.message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li class="success-message">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h1>{% trans %}Register{% endtrans %}</h1>
+        <label for="fullname">{% trans %}Full name{% endtrans %}</label>
+        <input type="text" name="fullname">
+        <label for="username">{% trans %}Username{% endtrans %}</label>
+        <input type="text" name="username">
+        <label for="password">{% trans %}Password{% endtrans %}</label>
+        <input type="password" name="password">
+        <button type="submit">{% trans %}Register{% endtrans %}</button>
+    </form>
+{% endblock %}
