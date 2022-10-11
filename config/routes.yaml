@@ -1,3 +1,33 @@
-controllers:
-    resource: ../src/Controller/
-    type: attribute
+blogs:
+    path: /
+    controller: App\Controller\BlogController::list 
+    methods: [ 'GET' ]
+
+blog:
+    path: /blogs/{slug}/{id}
+    controller: App\Controller\BlogController::show
+    requirements:
+        id: \d+
+
+login:
+    path: /login
+    controller: App\Controller\LoginController::login
+
+show_register:
+    path: /register
+    controller: App\Controller\RegisterController::showRegister
+    methods: [ 'GET' ]
+
+register:
+    path: /register
+    controller: App\Controller\RegisterController::register
+    methods: [ 'POST' ]
+
+secured:
+    path: /secured
+    controller: App\Controller\SecuredController::index
+    methods: [ 'GET' ]
+    
+logout:
+    path: /logout
+    controller: App\Controller\LogoutController::logout
