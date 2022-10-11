@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %} 
+    {% trans %} Blog {% endtrans %} 
+{% endblock %}
+
+{% block body %}
+    <div class="post-inner">
+        <article class="post-content">
+            <div class="post-header">
+                <img class="post-image" src="{{asset(post.media)}}" alt="Post image">
+            </div>
+            <h1 class="post-title">
+                {{ post.title }}
+            </h1>
+            <p class="post-body">
+                {{ post.body }}
+            </p>
+            <div class="post-author">
+                <img class="post-author-image" alt="Author's image" src="{{ asset('images/logo.png') }}">
+                <div class="post-author-data">
+                    <p class="post-author-fullname">{{ post.author.fullname }}</p>
+                    <p class="post-date">{{ post.created|date('d-m-Y') }}</p>
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock %}

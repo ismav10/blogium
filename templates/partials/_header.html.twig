@@ -1,0 +1,20 @@
+<header>
+    <div class="main-navigation">
+        <a href="{{url('blogs')}}">
+            <img src="{{asset('images/logo.png')}}" alt="Site logo">
+        </a>
+        <nav>
+            <ul>
+                <a href="{{url('blogs')}}" title="blogs">
+                    <li>{% trans %}Blogs{% endtrans %}</li>
+                </a>
+                <a href="{{url('login')}}" title="Sign In">
+                    <li>{% trans %}Sign In{% endtrans %}</li>
+                </a>
+                <a href="{{url('show_register')}}" title="Sign Up">
+                    <li>{% trans %}Sign Up{% endtrans %}</li>
+                </a>
+            </ul>
+        </nav>
+    </div>
+</header>
