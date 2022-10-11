@@ -23,3 +23,11 @@ services:
     App\Service\DataGenerator\FakerDataGenerator:
         bind:
             $limit: 100
+
+    App\Listeners\BlogPostListener:
+        tags:
+            -
+                name: doctrine.orm.entity_listener
+                event: prePersist
+                entity: App\Entity\BlogPost
+                lazy: true
