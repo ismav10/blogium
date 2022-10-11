@@ -1,12 +1,35 @@
 App\Entity\BlogPost:
-    properties:
-        title:
-            - Length: 
-                min: 5
-                minMessage: 'The title must be longer than {{ limit }}'
-                max: 255
-                maxMessage: 'The title must be shorter than {{ limit }}'
-        body:
-            - Length:
-                min: 5
-                minMessage: 'The body must be longer than {{ limit }}'
+  properties:
+    title:
+        - Length:
+            min: 5
+            minMessage: 'The title must be longer than {{ limit }}'
+            max: 255
+            maxMessage: 'The title must be shorter than {{ limit }}'
+    body:
+        - Length:
+            min: 5
+            minMessage: 'The body must be longer than {{ limit }}'
+
+App\Entity\User:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: [username]
+        message: 'This username is already in use.'
+  properties:
+    username:
+      - Length:
+          min: 3
+          max: 180
+          minMessage: 'The username must be longer than {{ limit }}'
+          maxMessage: 'The username must be shorter than {{ limit }}'
+    password:
+      - Length:
+          min: 8
+          minMessage: 'The password must be longer than {{ limit }}'
+    fullname:
+      - Length:
+          min: 6
+          max: 255
+          minMessage: 'The full name must be longer than {{ limit }}',
+          maxMessage: 'The full name must be shorter than {{ limit }}'
