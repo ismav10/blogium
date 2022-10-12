@@ -9,6 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RegisterController extends AbstractController
 {
+    /**
+     * Performs the action of register a user.
+     *
+     * @return Response The user register form with the notification messages.
+     */
     public function register(Request $request, UserCreator $userCreator) : Response
     {
         $userData = [
@@ -27,10 +32,5 @@ class RegisterController extends AbstractController
         return $this->render('register/register.html.twig', [
             'messages' => [ 'Correctly registered' ]
         ]);
-    }
-
-    public function showRegister() : Response
-    {
-        return $this->render('register/register.html.twig');
     }
 }

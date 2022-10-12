@@ -15,7 +15,7 @@ login:
 
 show_register:
     path: /register
-    controller: App\Controller\RegisterController::showRegister
+    controller: App\Controller\ShowRegisterController::showRegister
     methods: [ 'GET' ]
 
 register:
