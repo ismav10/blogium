@@ -44,6 +44,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->posts = new ArrayCollection();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -107,6 +110,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @see UserInterface
+     *
+     * @codeCoverageIgnore
      */
     public function eraseCredentials()
     {
