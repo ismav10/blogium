@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <form class="login-form" action="{{url('login')}}" method="POST">
+    <form id="form" class="login-form" action="{{url('login')}}" method="POST">
         {% if error %}
             <ul>
                 <li class="error-message">
@@ -15,9 +15,44 @@
         {% endif %}
         <h1>LogIn</h1>
         <label for="username">Username</label>
-        <input type="text" name="_username" value="{{ last_username }}" required>
+        <input id="username" type="text" name="_username" value="{{ last_username }}" required>
         <label for="password">Password</label>
-        <input type="password" name="_password" required>
-        <button type="submit">LogIn</button>
+        <input id="password" type="password" name="_password" required>
+        <button id="submit" type="submit">LogIn</button>
     </form>
+    <script>
+        const submitButton = document.getElementById('submit');
+        submitButton.addEventListener('click', logIntoApi);
+
+        const logIntoApi = async () => {
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+
+            if (!username.value || !password.value) {
+                return;
+            }
+
+            const form = document.getElementById('form');
+
+            e.preventDefault();
+
+            const credentials = {
+                username: username.value,
+                password: password.value
+            };
+
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(credentials)
+            };
+
+            const response = await fetch('/api/login_check', options);
+
+            e.target.removeEventListener('click', logIntoApi);
+            form.submit();
+        };
+    </script>
 {% endblock %}
