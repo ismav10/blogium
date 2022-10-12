@@ -2,12 +2,25 @@ body {
     margin: 0;
 }
 
-header a {
-    margin: auto;
+header img {
+    width: 80px;
 }
 
-header img {
-    width: 90px;
+.main-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.user-actions {
+    text-align: center;
+}
+
+.user-actions a {
+    padding: 10px;
+    background-color: red;
+    color: white;
 }
 
 header {
@@ -17,41 +30,9 @@ header {
     box-shadow: -5px 13px 15px -11px rgba(0,0,0,0.25);
 }
 
-.main-navigation {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    margin: 0 auto;
-}
-
-.main-navigation ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style: none;
-    padding-left: 0;
-}
-
 a {
     text-decoration: none;
     color: black;
-}
-
-.main-greeting {
-    padding: 0 20px;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: row;
-}
-
-.main-greeting img {
-    width: 50%;
-}
-
-.main-greeting .title-and-explanation {
-    width: 50%;
-    text-align: center;
-    padding: 5%;
 }
 
 .blog-list {
@@ -87,16 +68,15 @@ form {
     border-right: 1px solid black;
     display: flex;
     flex-direction: column;
-    padding: 50px;
-    width: 35%;
-    margin: 10% auto;
+    width: 80%;
+    margin: 30px auto;
     -webkit-box-shadow: -5px 13px 15px -11px rgba(0,0,0,0.25);
     -moz-box-shadow: -5px 13px 15px -11px rgba(0,0,0,0.25);
     box-shadow: -5px 13px 15px -11px rgba(0,0,0,0.25);
 }
 
 form > * {
-    width: 60%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -119,6 +99,7 @@ a.btn {
     font-size: 1.2rem;
 }
 
+.logout-link:hover,
 form button:hover,
 a.btn:hover {
     opacity: 0.6;
@@ -188,28 +169,6 @@ a.btn:hover {
 }
 
 @media (max-width: 992px) {
-    .main-greeting {
-        flex-direction: column;
-    }
-
-    .main-greeting img {
-        width: 100%;
-    }
-
-    .main-greeting .title-and-explanation {
-        width: 100%;
-        padding: 0;
-    }
-
-    .main-navigation ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .main-navigation ul:not(:first-child) {
-        padding-top: 5px;
-    }
-
     .blog-list article {
         flex-direction: column;
     }
@@ -225,11 +184,6 @@ a.btn:hover {
     .blog-list .post-data {
         width: 100%;
         padding: 0;
-    }
-
-    form {
-        padding: 20px 0;
-        width: 80%;
     }
 
     .post-content {
