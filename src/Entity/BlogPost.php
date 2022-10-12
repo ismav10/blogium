@@ -65,6 +65,9 @@ class BlogPost
     #[Groups(['blogpost:read'])]
     private ?User $author = null;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getId(): ?int
     {
         return $this->id;
