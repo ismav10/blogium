@@ -15,7 +15,7 @@ class ShowBlogController extends AbstractController
      * 
      * @throws ResourceNotFoundException if the id doesn't exists.
      */
-    public function show(ManagerRegistry $doctrine, int $id) : Response
+    public function showBlog(ManagerRegistry $doctrine, int $id) : Response
     {
         $post = $doctrine->getRepository(BlogPost::class)
             ->find($id);

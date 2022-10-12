@@ -12,7 +12,7 @@ class ListBlogController extends AbstractController
     /**
      * Shows a list of the last posts of the platform.
      */
-    public function list(ManagerRegistry $doctrine) : Response
+    public function listBlogs(ManagerRegistry $doctrine) : Response
     {
         $posts = $doctrine->getRepository(BlogPost::class)
             ->findBy(

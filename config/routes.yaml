@@ -5,7 +5,7 @@ blogs:
 
 blog:
     path: /blogs/{slug}/{id}
-    controller: App\Controller\ShowBlogController::showBlogs
+    controller: App\Controller\ShowBlogController::showBlog
     requirements:
         id: \d+
 
