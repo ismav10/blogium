@@ -31,3 +31,6 @@ secured:
 logout:
     path: /logout
     controller: App\Controller\LogoutController::logout
+
+api_login:
+    path: /api/login_check
