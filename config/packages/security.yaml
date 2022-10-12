@@ -36,6 +36,7 @@ security:
                 login_path: login
                 check_path: login
                 default_target_path: secured
+                enable_csrf: true
             login_throttling:
                 max_attempts: 3
             logout:
