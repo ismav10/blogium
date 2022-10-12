@@ -49,8 +49,7 @@ class UserCreator
     {
         /**
          * This loops over the properties sended by the controller in a generic way
-         * calling the corresponding set method based on the key and throwing and exception
-         * if the method doesn't exists in the entity.
+         * calling the corresponding set method.
          */
         foreach (array_keys($userData) as $key) {
             $method = 'set' . ucfirst($key);
