@@ -15,10 +15,16 @@ header img {
 
 .user-actions {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 10%;
 }
 
 .user-actions a {
     padding: 10px;
+    margin-left: 10px;
     background-color: red;
     color: white;
 }
@@ -188,6 +194,11 @@ a.btn:hover {
 
     .post-content {
         width: 80%;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        width: 30%;
     }
 }
 
