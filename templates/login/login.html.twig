@@ -18,21 +18,19 @@
         <input id="username" type="text" name="_username" value="{{ last_username }}" required>
         <label for="password">Password</label>
         <input id="password" type="password" name="_password" required>
-        <button id="submit" type="submit">LogIn</button>
+        <button id="submit-button">LogIn</button>
     </form>
     <script>
-        const submitButton = document.getElementById('submit');
-        submitButton.addEventListener('click', logIntoApi);
+        const submitButton = document.getElementById('submit-button');
+        const form = document.getElementById('form');
 
-        const logIntoApi = async () => {
+        const logIntoApi = async(e) => {
             const username = document.getElementById('username');
             const password = document.getElementById('password');
 
             if (!username.value || !password.value) {
                 return;
             }
-
-            const form = document.getElementById('form');
 
             e.preventDefault();
 
@@ -53,6 +51,10 @@
 
             e.target.removeEventListener('click', logIntoApi);
             form.submit();
+
+            return;
         };
+
+        submitButton.addEventListener('click', logIntoApi);
     </script>
 {% endblock %}
