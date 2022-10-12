@@ -49,7 +49,7 @@ class BlogPost
     #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $body = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     #[Groups(['blogpost:read'])]
     private ?\DateTimeInterface $created = null;
 
