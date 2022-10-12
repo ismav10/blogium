@@ -1,11 +1,11 @@
 blogs:
     path: /
-    controller: App\Controller\BlogController::list 
+    controller: App\Controller\ListBlogController::listBlogs
     methods: [ 'GET' ]
 
 blog:
     path: /blogs/{slug}/{id}
-    controller: App\Controller\BlogController::show
+    controller: App\Controller\ShowBlogController::showBlogs
     requirements:
         id: \d+
 
