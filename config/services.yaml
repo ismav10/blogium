@@ -46,4 +46,14 @@ services:
 
     App\Listeners\ApiAuthenticationSuccessListener:
         tags:
-            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccess }
+            -
+                name: kernel.event_listener
+                event: lexik_jwt_authentication.on_authentication_success
+                method: onAuthenticationSuccess
+
+    App\Listeners\LogoutListener:
+        tags:
+            - name:  kernel.event_listener
+              event: Symfony\Component\Security\Http\Event\LogoutEvent
+              dispatcher: security.event_dispatcher.secured
+              method: onLogoutSuccess
