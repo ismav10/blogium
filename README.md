@@ -102,7 +102,7 @@ I've tried to use a hexagonal architecture with the following structure:
 ├── Domain/	    This layer contains the domain classes.
 │   ├── BlogPost/   Contains the class that model the blog post and the repository interface.
 │   └── User/       Contains the class that model the user and the repository interface.
-└── Infrastructure/ Contains the classes for the entry points of the application and the persistence layer.
+└── Infrastructure/ Contains the classes for the entry points of the application and the persistence.
     ├── Api/
     ├── Command/
     ├── Controller/
