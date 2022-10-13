@@ -55,7 +55,7 @@ Once the prerequisites are installed, open a terminal and execute the following 
 ```
 git clone https://github.com/ismav10/blogium
 composer install
-docker-compose up
+docker compose up
 npm install
 npm run build
 npm run dev-server
