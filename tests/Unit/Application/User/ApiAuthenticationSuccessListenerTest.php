@@ -2,7 +2,7 @@
 
 namespace App\Tests\Unit\Listeners;
 
-use App\Listeners\ApiAuthenticationSuccessListener;
+use App\Application\User\ApiAuthenticationSuccessListener;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Cookie;

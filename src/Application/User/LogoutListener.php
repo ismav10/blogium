@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Application\User;
 
 use Symfony\Component\Security\Http\Event\LogoutEvent;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\DataGenerator;
+namespace App\Application\Shared\DataGenerator;
 
 use App\Domain\BlogPost\BlogPost;
 use App\Domain\User\User;

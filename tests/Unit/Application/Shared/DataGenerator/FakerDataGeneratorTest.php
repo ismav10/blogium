@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Utils\DataGenerator;
+namespace App\Tests\Unit\Application\Shared\DataGenerator;
 
 use App\Domain\BlogPost\BlogPost;
 use App\Domain\User\User;
-use App\Utils\DataGenerator\FakerDataGenerator;
-use App\Utils\DataGenerator\FakerFacade;
+use App\Application\Shared\DataGenerator\FakerDataGenerator;
+use App\Application\Shared\DataGenerator\FakerFacade;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;

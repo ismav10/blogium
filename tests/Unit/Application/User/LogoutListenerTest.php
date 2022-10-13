@@ -2,7 +2,7 @@
 
 namespace App\Tests\Unit\Listeners;
 
-use App\Listeners\LogoutListener;
+use App\Application\User\LogoutListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Response;

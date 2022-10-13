@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Listeners;
+namespace App\Tests\Unit\Application\BlogPost;
 
+use App\Application\BlogPost\BlogPostListener;
+use App\Application\Shared\DataGenerator\FakerFacade;
 use App\Domain\BlogPost\BlogPost;
 use App\Domain\User\User;
-use App\Listeners\BlogPostListener;
-use App\Utils\DataGenerator\FakerFacade;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\String\Slugger\AsciiSlugger;

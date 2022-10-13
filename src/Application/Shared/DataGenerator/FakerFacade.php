@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\DataGenerator;
+namespace App\Application\Shared\DataGenerator;
 
 class FakerFacade
 {

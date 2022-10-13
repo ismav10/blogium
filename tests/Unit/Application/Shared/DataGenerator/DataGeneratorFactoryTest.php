@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Utils\DataGenerator;
+namespace App\Tests\Unit\Application\Shared\DataGenerator;
 
-use App\Utils\DataGenerator\DataGeneratorFactory;
-use App\Utils\DataGenerator\FakerDataGenerator;
-use App\Utils\DataGenerator\FakerFacade;
-use App\Utils\DataGenerator\JsonPlaceholderDataGenerator;
+use App\Application\Shared\DataGenerator\DataGeneratorFactory;
+use App\Application\Shared\DataGenerator\FakerDataGenerator;
+use App\Application\Shared\DataGenerator\FakerFacade;
+use App\Application\Shared\DataGenerator\JsonPlaceholderDataGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use LogicException;
 use PHPUnit\Framework\TestCase;

@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Command;
 
-use App\Utils\DataGenerator\DataGenerator;
-use App\Utils\DataGenerator\DataGeneratorFactory;
+use App\Application\Shared\DataGenerator\DataGenerator;
+use App\Application\Shared\DataGenerator\DataGeneratorFactory;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

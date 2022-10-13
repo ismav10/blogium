@@ -2,8 +2,8 @@
 
 namespace App\Tests\Unit\Listeners;
 
+use App\Application\User\UserListener;
 use App\Domain\User\User;
-use App\Listeners\UserListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Application\BlogPost;
 
+use App\Application\Shared\DataGenerator\FakerFacade;
 use App\Domain\BlogPost\BlogPost;
-use App\Utils\DataGenerator\FakerFacade;
 use DateTime;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\String\Slugger\SluggerInterface;
