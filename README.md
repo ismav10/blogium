@@ -61,6 +61,8 @@ npm run build
 npm run dev-server
 ```
 
+You can use the option `--ignore-platform-reqs` for the composer command if you don't have the php 8.1 version installed.
+
 ### Use the platform
 
 You can check the `security.yaml` file to check the firewalls of the application.
