@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\Listeners;
+namespace App\Tests\Unit\Application\User;
 
 use App\Application\User\UserListener;
 use App\Domain\User\User;
