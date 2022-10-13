@@ -23,36 +23,36 @@ services:
 
     App\Infrastructure\Command\GenerateDefaultDataCommand:
         arguments:
-            [ '@App\Utils\DataGenerator\FakerDataGenerator', '@App\Utils\DataGenerator\DataGeneratorFactory' ]
+            [ '@App\Application\Shared\DataGenerator\FakerDataGenerator', '@App\Application\Shared\DataGenerator\DataGeneratorFactory' ]
 
-    App\Utils\DataGenerator\FakerDataGenerator:
+    App\Application\Shared\DataGenerator\FakerDataGenerator:
         bind:
             $limit: 100
 
-    App\Listeners\UserListener:
+    App\Application\User\UserListener:
         tags:
             -
                 name: doctrine.orm.entity_listener
                 event: prePersist
-                entity: App\Entity\User
+                entity: App\Domain\User\User
                 lazy: true
 
-    App\Listeners\BlogPostListener:
+    App\Application\BlogPost\BlogPostListener:
         tags:
             -
                 name: doctrine.orm.entity_listener
                 event: prePersist
-                entity: App\Entity\BlogPost
+                entity: App\Domain\BlogPost\BlogPost
                 lazy: true
 
-    App\Listeners\ApiAuthenticationSuccessListener:
+    App\Application\User\ApiAuthenticationSuccessListener:
         tags:
             -
                 name: kernel.event_listener
                 event: lexik_jwt_authentication.on_authentication_success
                 method: onAuthenticationSuccess
 
-    App\Listeners\LogoutListener:
+    App\Application\User\LogoutListener:
         tags:
             - name:  kernel.event_listener
               event: Symfony\Component\Security\Http\Event\LogoutEvent
