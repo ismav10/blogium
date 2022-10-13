@@ -1,4 +1,4 @@
-App\Entity\BlogPost:
+App\Domain\BlogPost\BlogPost:
   properties:
     title:
         - Length:
@@ -11,7 +11,7 @@ App\Entity\BlogPost:
             min: 5
             minMessage: 'The body must be longer than {{ limit }}'
 
-App\Entity\User:
+App\Domain\User\User:
   constraints:
     - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
         fields: [username]

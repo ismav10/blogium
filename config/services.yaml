@@ -66,4 +66,5 @@ services:
         arguments: [ '@App\Infrastructure\Persistence\Doctrine\BlogPost\BlogPostRepository' ]
 
     App\Application\User\CreateUser:
-        arguments: [ '@App\Infrastructure\Persistence\Doctrine\User\UserRepository' ]
+        bind: 
+            $userRepository: '@App\Infrastructure\Persistence\Doctrine\User\UserRepository'
