@@ -1,4 +1,4 @@
-App\Domain\BlogPost\BlogPost:
+App\Domain\User\User:
     attributes:
         username:
             groups: ['blogpost:read']
