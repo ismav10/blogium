@@ -1,0 +1,27 @@
+App\Domain\User\User:
+  type: entity
+  repositoryClass: App\Infrastructure\Persistence\Doctrine\User\UserRepository
+  table: user
+  id:
+      id:
+        type: integer
+        generator:
+          strategy: AUTO
+  fields:
+      username:
+        type: string
+        length: 180
+        unique: true
+      fullname:
+        type: string
+        length: 255
+      password:
+        type: string
+      roles:
+        type: json
+  oneToMany:
+      posts:
+        targetEntity: App\Domain\BlogPost\BlogPost
+        mappedBy: author
+        orphanRemoval: true
+        nullable: false

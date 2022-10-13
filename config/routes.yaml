@@ -1,36 +1,36 @@
 blogs:
     path: /
-    controller: App\Controller\ListBlogController::listBlogs
+    controller: App\Infrastructure\Controller\BlogPost\ListBlogController::listBlogs
     methods: [ 'GET' ]
 
 blog:
     path: /blogs/{slug}/{id}
-    controller: App\Controller\ShowBlogController::showBlog
+    controller: App\Infrastructure\Controller\BlogPost\ShowBlogController::showBlog
     requirements:
         id: \d+
 
 login:
     path: /login
-    controller: App\Controller\LoginController::login
+    controller: App\Infrastructure\Controller\User\LoginController::login
 
 show_register:
     path: /register
-    controller: App\Controller\ShowRegisterController::showRegister
+    controller: App\Infrastructure\Controller\User\ShowRegisterController::showRegister
     methods: [ 'GET' ]
 
 register:
     path: /register
-    controller: App\Controller\RegisterController::register
+    controller: App\Infrastructure\Controller\User\RegisterController::register
     methods: [ 'POST' ]
 
 secured:
     path: /secured
-    controller: App\Controller\SecuredController::index
+    controller: App\Infrastructure\Controller\User\SecuredController::index
     methods: [ 'GET' ]
     
 logout:
     path: /logout
-    controller: App\Controller\LogoutController::logout
+    controller: App\Infrastructure\Controller\User\LogoutController::logout
 
 api_login:
     path: /api/login_check

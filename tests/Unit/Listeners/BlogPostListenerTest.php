@@ -2,10 +2,10 @@
 
 namespace App\Tests\Unit\Listeners;
 
-use App\Entity\BlogPost;
-use App\Entity\User;
+use App\Domain\BlogPost\BlogPost;
+use App\Domain\User\User;
 use App\Listeners\BlogPostListener;
-use App\Service\DataGenerator\FakerFacade;
+use App\Utils\DataGenerator\FakerFacade;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\String\Slugger\AsciiSlugger;

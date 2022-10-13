@@ -17,14 +17,15 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Domain/BlogPost.php'
+            - '../src/Domain/User.php'
             - '../src/Kernel.php'
 
-    App\Command\GenerateDefaultDataCommand:
+    App\Infrastructure\Command\GenerateDefaultDataCommand:
         arguments:
-            [ '@App\Service\DataGenerator\FakerDataGenerator', '@App\Service\DataGenerator\DataGeneratorFactory' ]
+            [ '@App\Utils\DataGenerator\FakerDataGenerator', '@App\Utils\DataGenerator\DataGeneratorFactory' ]
 
-    App\Service\DataGenerator\FakerDataGenerator:
+    App\Utils\DataGenerator\FakerDataGenerator:
         bind:
             $limit: 100
 
@@ -57,3 +58,12 @@ services:
               event: Symfony\Component\Security\Http\Event\LogoutEvent
               dispatcher: security.event_dispatcher.secured
               method: onLogoutSuccess
+
+    App\Application\BlogPost\SearchLastBlogPosts:
+        arguments: [ '@App\Infrastructure\Persistence\Doctrine\BlogPost\BlogPostRepository' ]
+
+    App\Application\BlogPost\FindBlogPost:
+        arguments: [ '@App\Infrastructure\Persistence\Doctrine\BlogPost\BlogPostRepository' ]
+
+    App\Application\User\CreateUser:
+        arguments: [ '@App\Infrastructure\Persistence\Doctrine\User\UserRepository' ]

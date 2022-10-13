@@ -1,0 +1,29 @@
+App\Domain\BlogPost\BlogPost:
+  type: entity
+  repositoryClass: App\Infrastructure\Persistence\Doctrine\BlogPost\BlogPostRepository
+  table: blog_post
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    title:
+      type: string
+      length: 255
+    body:
+      type: text
+    created:
+      type: datetime
+    slug:
+      type: text
+    media:
+      type: string
+      length: 255
+      nullable: true
+  manyToOne:
+    author:
+      targetEntity: App\Domain\User\User
+      inversedBy: posts
+      nullable: false
+  

@@ -2,10 +2,10 @@
 
 namespace App\Tests\Unit\Command;
 
-use App\Command\GenerateDefaultDataCommand;
-use App\Service\DataGenerator\DataGeneratorFactory;
-use App\Service\DataGenerator\FakerDataGenerator;
-use App\Service\DataGenerator\JsonPlaceholderDataGenerator;
+use App\Infrastructure\Command\GenerateDefaultDataCommand;
+use App\Utils\DataGenerator\DataGeneratorFactory;
+use App\Utils\DataGenerator\FakerDataGenerator;
+use App\Utils\DataGenerator\JsonPlaceholderDataGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

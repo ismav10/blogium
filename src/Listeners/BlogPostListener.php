@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Entity\BlogPost;
-use App\Service\DataGenerator\FakerFacade;
+use App\Domain\BlogPost\BlogPost;
+use App\Utils\DataGenerator\FakerFacade;
 use DateTime;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\String\Slugger\SluggerInterface;

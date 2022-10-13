@@ -2,7 +2,7 @@
 
 namespace App\Tests\Unit\Listeners;
 
-use App\Listeners\ApiAuthenticationSuccessListener as ListenersApiAuthenticationSuccessListener;
+use App\Listeners\ApiAuthenticationSuccessListener;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -17,7 +17,7 @@ class ApiAuthenticationSuccessListenerTest extends TestCase
         $this->response = $this->createMock(Response::class);
         $this->response->headers = $this->createMock(ResponseHeaderBag::class);
 
-        $this->listener = new ListenersApiAuthenticationSuccessListener();
+        $this->listener = new ApiAuthenticationSuccessListener();
     }
 
     /**

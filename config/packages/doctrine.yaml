@@ -6,11 +6,18 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
+            BlogPost:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                type: yml
+                dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Doctrine/BlogPost'
+                prefix: 'App\Domain\BlogPost'
+                alias: BlogPost
+            User:
+                is_bundle: false
+                type: yml
+                dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Doctrine/User'
+                prefix: 'App\Domain\User'
+                alias: User
 
 when@test:
     doctrine:
