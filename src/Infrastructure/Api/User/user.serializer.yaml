@@ -1,0 +1,6 @@
+App\Domain\BlogPost\BlogPost:
+    attributes:
+        username:
+            groups: ['blogpost:read']
+        fullname:
+            groups: ['blogpost:read']

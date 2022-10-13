@@ -2,29 +2,22 @@
 
 namespace App\Domain\User;
 
-use ApiPlatform\Metadata\ApiResource;
 use App\Domain\BlogPost\BlogPost;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource(
-    operations: []
-)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     private ?int $id = null;
 
-    #[Groups(['blogpost:read'])]
     private ?string $username = null;
 
     private array $roles = [];
 
     private ?string $password = null;
 
-    #[Groups(['blogpost:read'])]
     private ?string $fullname = null;
 
     private Collection $posts;

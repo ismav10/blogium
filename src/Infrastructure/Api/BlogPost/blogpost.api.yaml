@@ -1,0 +1,15 @@
+resources:
+  App\Domain\BlogPost\BlogPost:
+    shortName: 'blogposts'
+    operations:
+      ApiPlatform\Metadata\Get: ~
+      ApiPlatform\Metadata\Post: ~
+      ApiPlatform\Metadata\GetCollection:
+            filters: ['blogpost.search_filter']
+    normalizationContext:
+      groups: ['blogpost:read']
+    denormalizationContext:
+      groups: ['blogpost:write']
+    paginationItemsPerPage: 10
+    order:
+      created: DESC

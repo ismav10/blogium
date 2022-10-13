@@ -68,3 +68,8 @@ services:
     App\Application\User\CreateUser:
         bind: 
             $userRepository: '@App\Infrastructure\Persistence\Doctrine\User\UserRepository'
+
+    blogpost.search_filter:
+        parent: 'api_platform.doctrine.orm.search_filter'
+        arguments: [ { title: 'partial', author.fullname: 'partial', author.username: 'partial' } ]
+        tags:  [ 'api_platform.filter' ]

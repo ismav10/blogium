@@ -1,0 +1,12 @@
+App\Domain\BlogPost\BlogPost:
+    attributes:
+        title:
+            groups: ['blogpost:read', 'blogpost:write']
+        body:
+            groups: ['blogpost:read', 'blogpost:write']
+        created:
+            groups: ['blogpost:read']
+        media:
+            groups: ['blogpost:read']
+        author:
+            groups: ['blogpost:read']

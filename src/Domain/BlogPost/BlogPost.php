@@ -2,54 +2,22 @@
 
 namespace App\Domain\BlogPost;
 
-use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Metadata\ApiFilter;
-use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\Post;
 use App\Domain\User\User;
-use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource(
-    operations: [
-        new Get(),
-        new Post(),
-        new GetCollection()
-    ],
-    normalizationContext: [ 'groups' => ['blogpost:read'] ],
-    denormalizationContext: [ 'groups' => ['blogpost:write'] ],
-    paginationItemsPerPage: 10,
-    order: ['created' => 'DESC'],
-    shortName: 'blogposts'
-)]
-#[ApiFilter(
-    SearchFilter::class, 
-    properties: [
-        'title' => 'partial',
-        'author.fullname' => 'partial',
-        'author.username' => 'partial'
-    ] 
-)]
 class BlogPost
 {
     private ?int $id = null;
 
-    #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $title = null;
 
-    #[Groups(['blogpost:read', 'blogpost:write'])]
     private ?string $body = null;
 
-    #[Groups(['blogpost:read'])]
     private ?\DateTimeInterface $created = null;
 
     private ?string $slug = null;
 
-    #[Groups(['blogpost:read'])]
     private ?string $media = null;
 
-    #[Groups(['blogpost:read'])]
     private ?User $author = null;
 
     /**
