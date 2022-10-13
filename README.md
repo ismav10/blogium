@@ -128,6 +128,8 @@ This problem is not minor because the public part is accessed by a lot of bots.
 To avoid calling the database too much times I would use a Redis database as an in-memory cache for some queries.
 3. This project doesn't follow the KISS principle at all, but this is because of the nature of it to be a technical test project.
 4. There are some features that I would wanted to try to add if this were a real project (Some of them are probably not so easy to implement, are just a little abstract ideas):
+    - A logger.
+    - L10n and i18n.
     - A subscription system for the users to be notified via different channels.
     - A karma system based on the tries of plagiarism. The SimHash algorithm maybe could help to check if a post is a copy.
     - A popularity system based on the number of subscribers of the user.
