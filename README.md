@@ -1,6 +1,6 @@
 # Blogium
 
-## What it is?
+## What is it?
 
 Blogium is a basic test project for a selection process.
 
