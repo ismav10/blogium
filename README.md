@@ -137,8 +137,8 @@ To avoid calling the database too much times I would use a Redis database as an 
 ### Feedback about the technical test
 
 1. Is simply enough that you don't need to spend too much time.
-2. Has a few subtle details to check the knowledge of the participant.
-3. The fact that it hasn't limit time gives the participant the freedom to choose the scope of the project to develop.
+2. Has a few subtle details to check the knowledge of the developer.
+3. The fact that it hasn't limit time gives the developer the freedom to choose the scope of the project to develop.
 
 ### Thanks
 
