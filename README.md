@@ -59,6 +59,7 @@ docker compose up
 npm install
 npm run build
 npm run dev-server
+bin/console lexik:jwt:generate-keypair
 ```
 
 You can use the option `--ignore-platform-reqs` for the composer command if you don't have the php 8.1 version installed.
